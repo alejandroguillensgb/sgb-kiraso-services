@@ -28,7 +28,7 @@ function dirTree(filename) {
 
 router.get('/', function(req, res, next) {
     
-    res.json([dirTree('/home/alejandro/Descargas/nodeexamples')])
+    res.json([dirTree('/home/alejandro/Descargas/drivers')])
     
 });
 
