@@ -10,8 +10,14 @@ var users = require('./routes/users');
 var getContent = require('./routes/getContent');
 var setContent = require('./routes/setContent');
 var dirTree = require('./routes/dirTree');
+var testTree = require('./routes/test-tree')
 
 var app = express();
+
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +36,7 @@ app.use('/users', users);
 app.use('/getContent', getContent);
 app.use('/setContent', setContent);
 app.use('/dirTree', dirTree);
+app.use('/testTree', testTree);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
