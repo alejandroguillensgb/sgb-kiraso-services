@@ -28,7 +28,7 @@ function dirTree(filename) {
 
 router.get('/', function(req, res, next) {
     
-    res.json([dirTree('/home/alejandro/kiraso-wizard/sgb-kiraso-services/routes')])
+    res.json([dirTree('/home/alejandro/kiraso-wizard/sgb-kiraso-services')])
     
 });
 
