@@ -13,7 +13,7 @@ var router = express.Router();
 // });
 
 router.get('/', function(req, res, next) {
-    var data = fs.readFileSync(req.query.path, 'utf8');
+    var data = fs.readFileSync(req.query.path);
     if (req.query.type === 'json'){
         res.json(JSON.parse(data))
     }else{res.send(data.toString())}
