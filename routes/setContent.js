@@ -4,8 +4,17 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    fs.writeFileSync(req.query.path, JSON.parse(req.query.cont).join('\n'));
+    var path = req.query.path;
+
+    try {
+        fs.accessSync(path, fs.F_OK);
+    } catch (e) {
+        fs.closeSync(fs.openSync(path, 'w+'));
+    };
+    console.log(req.query.cont);
+    fs.writeFileSync(path, JSON.parse(req.query.cont).join('\n'));
     res.send("Success");
 });
 
 module.exports = router;
+//

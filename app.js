@@ -12,6 +12,7 @@ var setContent = require('./routes/setContent');
 var dirTree = require('./routes/dirTree');
 var testTree = require('./routes/test-tree');
 var copyContent = require('./routes/copyContent');
+var getFiles = require('./routes/getFiles');
 
 var app = express();
 
@@ -39,6 +40,7 @@ app.use('/setContent', setContent);
 app.use('/dirTree', dirTree);
 app.use('/testTree', testTree);
 app.use('/copyContent', copyContent);
+app.use('/getFiles', getFiles);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
