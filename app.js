@@ -13,11 +13,25 @@ var dirTree = require('./routes/dirTree');
 var testTree = require('./routes/test-tree');
 var copyContent = require('./routes/copyContent');
 var getFiles = require('./routes/getFiles');
+var insert_db = require('./routes/insert_db');
+var setModels = require('./routes/setModels');
+var findModel = require('./routes/findModel');
+var mongoose_test = require('./routes/mongoose_test');
+var mongooseFind = require('./routes/mongooseFind');
+var mongoose_setModels = require('./routes/mongoose_setModels');
+var createUser = require("./routes/createUser");
+var dropDb = require("./routes/dropDb");
+var loginUser = require("./routes/loginUser");
+var mongoose_setGraph = require("./routes/mongoose_setGraph");
+var mongoose_setProjects = require("./routes/mongoose_setProjects");
+var mongoose_findGraph = require("./routes/mongoose_findGraph");
 
 var app = express();
 
 app.all('*', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'GET, POST, PUT, DELETE, OPTIONS, Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With');
   next();
 });
 
@@ -41,6 +55,18 @@ app.use('/dirTree', dirTree);
 app.use('/testTree', testTree);
 app.use('/copyContent', copyContent);
 app.use('/getFiles', getFiles);
+app.use('/insert_db', insert_db);
+app.use('/setModels', setModels);
+app.use('/findModel', findModel);
+app.use('/mongoose_test', mongoose_test);
+app.use('/mongooseFind', mongooseFind);
+app.use('/mongoose_setModels', mongoose_setModels);
+app.use('/createUser', createUser);
+app.use('/dropDb', dropDb);
+app.use('/loginUser', loginUser);
+app.use('/mongoose_setGraph', mongoose_setGraph);
+app.use('/mongoose_setProjects', mongoose_setProjects);
+app.use('/mongoose_findGraph', mongoose_findGraph);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

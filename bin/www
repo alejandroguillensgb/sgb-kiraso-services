@@ -7,7 +7,9 @@
 var app = require('../app');
 var debug = require('debug')('sgb-kiraso-services:server');
 var http = require('http');
-var terminal = require('web-terminal');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
+
 
 /**
  * Get port from environment and store in Express.
@@ -25,10 +27,18 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-terminal(server);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+server.on('close', function() {
+  console.log(' Stopping ...');
+});
+
+process.on('SIGINT', function() {
+  server.close();
+  process.exit();
+});
+
 
 /**
  * Normalize a port into a number, string, or false.
