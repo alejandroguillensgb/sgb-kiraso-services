@@ -19,7 +19,6 @@ router.post('/', function(req, res) {
                                                 _id: elems[0]._id, 
                                                 backgroundImage: elems[0].backgroundImage,
                                                 appLogo: elems[0].appLogo,
-                                                models: elems[0].models,
                                                 graph: graph
                                             });
 

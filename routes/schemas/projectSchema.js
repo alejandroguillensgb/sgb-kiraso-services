@@ -5,12 +5,6 @@ var projectSchema = new Schema({
     _id: String,
     backgroundImage: {type: String, default: ""},
     appLogo: {type: String, default: ""},
-    models: {
-        data: [Schema.Types.Mixed],
-        params: [Schema.Types.Mixed],
-        screen: [Schema.Types.Mixed],
-        event: [Schema.Types.Mixed],
-    },
     graph: String
 });
 
