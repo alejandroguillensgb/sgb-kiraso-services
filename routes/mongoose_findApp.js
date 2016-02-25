@@ -8,17 +8,17 @@ var router = express.Router();
 router.get('/', function(req, res) {
 
     var app_name = req.query.app;
-    var elementId = req.query.id;
-    var model_type = req.query.type;
-
-    console.log(model_type);
 
     Project.find({ _id: app_name }, function(err, elems){
         console.log(app_name);
         console.log(elems);
         if(elems.length != 0){
-            var model = _.find(elems[0].models[model_type], {elementId: elementId});
-            res.send(model);
+            var appModel = {
+                name: elems[0]._id,
+                backgroundImage: elems[0].backgroundImage,
+                appLogo: elems[0].appLogo
+            };
+            res.send(appModel);
         }else{
             res.status(404).send("not found");
         };

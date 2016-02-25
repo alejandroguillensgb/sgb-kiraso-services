@@ -25,6 +25,8 @@ var loginUser = require("./routes/loginUser");
 var mongoose_setGraph = require("./routes/mongoose_setGraph");
 var mongoose_setProjects = require("./routes/mongoose_setProjects");
 var mongoose_findGraph = require("./routes/mongoose_findGraph");
+var mongoose_findApp = require("./routes/mongoose_findApp");
+var mongoose_removeElement = require("./routes/mongoose_removeElement");
 
 var app = express();
 
@@ -67,6 +69,8 @@ app.use('/loginUser', loginUser);
 app.use('/mongoose_setGraph', mongoose_setGraph);
 app.use('/mongoose_setProjects', mongoose_setProjects);
 app.use('/mongoose_findGraph', mongoose_findGraph);
+app.use('/mongoose_findApp', mongoose_findApp);
+app.use('/mongoose_removeElement', mongoose_removeElement);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
