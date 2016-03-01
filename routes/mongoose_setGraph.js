@@ -23,12 +23,11 @@ router.post('/', function(req, res) {
                                             });
 
             elems[0].remove(function(){
-                console.log('remove')
-            });
-
-            updateProject.save(function(err, elems){
-                console.log(elems);
-                console.log('graph updated');
+                console.log('remove');
+                updateProject.save(function(err, elems){
+                    console.log(elems);
+                    console.log('graph updated');
+                });
             });
         };  
     });

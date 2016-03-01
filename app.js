@@ -28,6 +28,9 @@ var mongoose_findGraph = require("./routes/mongoose_findGraph");
 var mongoose_findApp = require("./routes/mongoose_findApp");
 var mongoose_removeElement = require("./routes/mongoose_removeElement");
 var mongoose_updateProject = require("./routes/mongoose_updateProject");
+var exec = require("./routes/exec");
+var cleanDir = require("./routes/cleanDir");
+var generateFolder = require("./routes/generateFolder");
 
 var app = express();
 
@@ -73,6 +76,9 @@ app.use('/mongoose_findGraph', mongoose_findGraph);
 app.use('/mongoose_findApp', mongoose_findApp);
 app.use('/mongoose_removeElement', mongoose_removeElement);
 app.use('/mongoose_updateProject', mongoose_updateProject);
+app.use('/exec', exec);
+app.use('/cleanDir', cleanDir);
+app.use('/generateFolder', generateFolder);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
