@@ -10,7 +10,6 @@ router.get('/', function(req, res) {
     var init_path = _.initial(split).join("/");
     var last = _.last(split);
     exec("cd " + init_path + " && tar -cvf " + last + ".tar " + last, function(err, stdout){
-        //res.send();
         res.sendFile(path + ".tar")
     });
 
