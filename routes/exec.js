@@ -1,53 +1,62 @@
 var express = require('express');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
-var exec = require('child_process').exec;
 var spawn = require('child_process').spawn;
+var exec = require('child_process').execSync;
 var router = express.Router();
-var child;
 
 router.get('/', function(req, res) {
 
     var path = req.query.path;
+
     console.log(path);
-    console.log("despues de path")
+    
     fs.readdir(path, function(err){
         if(err){
             mkdirp.sync(path);
-            //Gen app   
-        } else {
-            console.log("entre aca");
-            fs.readdir(path + "_tmp", function(err){
-                if(err){
-                    console.log("hya error")
-                    mkdirp.sync(path + "_tmp");
-                } else {
-                    var files = fs.readdirSync(path + "_tmp");
-                    console.log(files);
-                    for(var i = 0; i < files.length; i++){
-                        exec("mv " + path + "_tmp/" + files[i] + " " + path, function(){
-                            console.log("files moved");
+            var split_path = path.split("/");
+
+            var gen = spawn('yo', ['megazord', split_path[split_path.length-1]], {cwd: path});
+
+            gen.stdout.setEncoding('utf8');    
+            gen.stdout.on('data', function (data) {
+              console.log(data)
+            });
+
+            gen.stderr.setEncoding('utf8');
+            gen.stderr.on('data', function (data) {
+              console.log('stderr: ' + data);
+            });
+
+            gen.on("close", function(){
+                fs.readdir(path + "_tmp", function(err, files){
+                    if(!err){
+                        for(var i = 0; i < files.length; i++){
+                            console.log(files[i])
+                            exec("mv " + path + "_tmp/" + files[i] + " " + path)
+                        };
+
+                        var npm = spawn('npm', ['install'], {cwd: path});
+                        npm.stdout.setEncoding('utf8');
+                        npm.stdout.on('data', function (data) {
+                          console.log(data)
+                        });
+
+                        npm.stderr.setEncoding('utf8');
+                        npm.stderr.on('data', function (data) {
+                          console.log('stderr: ' + data);
+                        });
+
+                        npm.on('close', function(){
+                            res.send("finish")      
                         });
                     };
-                };
-            })
-            
-        };
+                });
+            });    
+        } else {
+            res.send("generated");
+        }; 
     });
-
-
-    
-
-    res.send();
-    
- 
-    // ver si el directorio existe
-        // si no crearlo y generar aplicacion
-    // mover los archivos de carpeta auxiliar a la carpeta de origen
-    // borrar carpeta auxiliar
-    
-    
-
 });
 
 module.exports = router;

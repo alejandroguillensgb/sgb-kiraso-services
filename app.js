@@ -31,6 +31,9 @@ var mongoose_updateProject = require("./routes/mongoose_updateProject");
 var exec = require("./routes/exec");
 var cleanDir = require("./routes/cleanDir");
 var generateFolder = require("./routes/generateFolder");
+var runServer = require("./routes/runServer");
+var runApp = require("./routes/runApp");
+var setContentConfig = require("./routes/setContentConfig");
 
 var app = express();
 
@@ -79,6 +82,9 @@ app.use('/mongoose_updateProject', mongoose_updateProject);
 app.use('/exec', exec);
 app.use('/cleanDir', cleanDir);
 app.use('/generateFolder', generateFolder);
+app.use('/runServer', runServer);
+app.use('/runApp', runApp);
+app.use('/setContentConfig', setContentConfig);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

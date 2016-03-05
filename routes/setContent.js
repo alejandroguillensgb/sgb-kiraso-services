@@ -1,6 +1,7 @@
 var fs = require('fs');
 var express = require('express');
 var mkdirp = require('mkdirp');
+var ts = require('typescript-compiler');
 var router = express.Router();
 
 router.put('/', function(req, res) {
@@ -18,7 +19,8 @@ router.put('/', function(req, res) {
         };
 
         fs.writeFileSync(path+"/"+filename, JSON.parse(cont).join('\n'));
-        res.send("Data saved: " + cont);
+
+        res.send(cont);
 
     });
 
