@@ -54,7 +54,29 @@ router.get('/', function(req, res) {
                 });
             });    
         } else {
-            res.send("generated");
+            fs.readdir(path + "_tmp", function(err, files){
+                if(!err){
+                    for(var i = 0; i < files.length; i++){
+                        console.log(files[i])
+                        exec("mv " + path + "_tmp/" + files[i] + " " + path)
+                    };
+                    
+                    var npm = spawn('npm', ['install'], {cwd: path});
+                    npm.stdout.setEncoding('utf8');
+                    npm.stdout.on('data', function (data) {
+                      console.log(data)
+                    });
+
+                    npm.stderr.setEncoding('utf8');
+                    npm.stderr.on('data', function (data) {
+                      console.log('stderr: ' + data);
+                    });
+
+                    npm.on('close', function(){
+                        res.send("finish")      
+                    });
+                };
+            });
         }; 
     });
 });

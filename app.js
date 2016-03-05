@@ -34,6 +34,7 @@ var generateFolder = require("./routes/generateFolder");
 var runServer = require("./routes/runServer");
 var runApp = require("./routes/runApp");
 var setContentConfig = require("./routes/setContentConfig");
+var killApp = require("./routes/killApp");
 
 var app = express();
 
@@ -85,6 +86,7 @@ app.use('/generateFolder', generateFolder);
 app.use('/runServer', runServer);
 app.use('/runApp', runApp);
 app.use('/setContentConfig', setContentConfig);
+app.use('/killApp', killApp);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
