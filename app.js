@@ -4,6 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var socket_io = require("socket.io");
+
+var app = express();
+
+var io = socket_io();
+app.io = io;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -28,15 +34,14 @@ var mongoose_findGraph = require("./routes/mongoose_findGraph");
 var mongoose_findApp = require("./routes/mongoose_findApp");
 var mongoose_removeElement = require("./routes/mongoose_removeElement");
 var mongoose_updateProject = require("./routes/mongoose_updateProject");
-var exec = require("./routes/exec");
+var exec = require("./routes/exec")(io);
 var cleanDir = require("./routes/cleanDir");
 var generateFolder = require("./routes/generateFolder");
 var runServer = require("./routes/runServer");
-var runApp = require("./routes/runApp");
+var runApp = require("./routes/runApp")(io);
 var setContentConfig = require("./routes/setContentConfig");
 var killApp = require("./routes/killApp");
 
-var app = express();
 
 app.all('*', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');

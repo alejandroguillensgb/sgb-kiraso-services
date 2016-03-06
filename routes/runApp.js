@@ -4,41 +4,42 @@ var mkdirp = require('mkdirp');
 var spawn = require('child_process').spawn;
 var router = express.Router();
 
-router.get('/', function(req, res) {
+var returnFnc = function(io){
 
-    var path = req.query.path;
+    router.get('/', function(req, res) {
 
-    console.log(path);
-    
-    var npm = spawn('npm', ['install'], {cwd: path});
-    npm.stdout.setEncoding('utf8');
-    npm.stdout.on('data', function (data) {
-      console.log(data)
-    });
+        var path = req.query.path;
 
-    npm.stderr.setEncoding('utf8');
-    npm.stderr.on('data', function (data) {
-      console.log('stderr: ' + data);
-    });
-
-    npm.on('close', function(){
-        var serve = spawn("gulp", ["serve"], { cwd: path });
-
-        serve.stdout.setEncoding('utf8');    
-        serve.stdout.on('data', function (data) {
-          console.log(data)
+        console.log(path);
+        
+        var npm = spawn('npm', ['install'], {cwd: path});
+        npm.stdout.setEncoding('utf8');
+        npm.stdout.on('data', function (data) {
+            io.emit("news", data);
         });
 
-        serve.stderr.setEncoding('utf8');
-        serve.stderr.on('data', function (data) {
-          console.log('stderr: ' + data);
+        npm.stderr.setEncoding('utf8');
+        npm.stderr.on('data', function (data) {
+            io.sockets.emit("news", data);
         });
 
-        res.send(serve.pid.toString());
+        npm.on('close', function(){
+            var serve = spawn("gulp", ["serve"], { cwd: path });
+
+            serve.stdout.setEncoding('utf8');    
+            serve.stdout.on('data', function (data) {
+                io.sockets.emit("news", data);
+            });
+
+            serve.stderr.setEncoding('utf8');
+            serve.stderr.on('data', function (data) {
+                io.sockets.emit("news", data);
+            });
+
+            res.send(serve.pid.toString());
+        });
     });
+    return router;
+};
 
-    
-
-});
-
-module.exports = router;
+module.exports = returnFnc;
