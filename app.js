@@ -45,6 +45,7 @@ var setInventario = require("./routes/setInventario");
 var cloneRepo = require("./routes/cloneRepo");
 var removeComp = require("./routes/removeComp");
 var moveScreens = require("./routes/moveScreens");
+var setMetadata = require("./routes/setMetadata");
 
 app.all('*', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -99,6 +100,7 @@ app.use('/setInventario', setInventario);
 app.use('/cloneRepo', cloneRepo);
 app.use('/removeComp', removeComp);
 app.use('/moveScreens', moveScreens);
+app.use('/setMetadata', setMetadata);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
