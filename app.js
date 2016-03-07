@@ -41,7 +41,9 @@ var runServer = require("./routes/runServer");
 var runApp = require("./routes/runApp")(io);
 var setContentConfig = require("./routes/setContentConfig");
 var killApp = require("./routes/killApp");
-
+var setInventario = require("./routes/setInventario");
+var cloneRepo = require("./routes/cloneRepo");
+var removeComp = require("./routes/removeComp");
 
 app.all('*', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -92,6 +94,9 @@ app.use('/runServer', runServer);
 app.use('/runApp', runApp);
 app.use('/setContentConfig', setContentConfig);
 app.use('/killApp', killApp);
+app.use('/setInventario', setInventario);
+app.use('/cloneRepo', cloneRepo);
+app.use('/removeComp', removeComp);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
