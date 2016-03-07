@@ -36,7 +36,7 @@ var returnFnc = function(io){
                     fs.readdir(path + "_tmp", function(err, files){
                         if(!err){
                             for(var i = 0; i < files.length; i++){
-                                console.log(files[i])
+                                console.log(files[i]);
                                 exec("mv " + path + "_tmp/" + files[i] + " " + path)
                             };
 
@@ -58,11 +58,27 @@ var returnFnc = function(io){
                     });
                 });    
             } else {
+                var aux;
                 fs.readdir(path + "_tmp", function(err, files){
                     if(!err){
                         for(var i = 0; i < files.length; i++){
                             console.log(files[i])
-                            exec("mv " + path + "_tmp/" + files[i] + " " + path)
+                            if(files[i] == "screens"){
+                                aux = files[i];
+                                fs.readdir(path + "_tmp/" + files[i], function(err,fil){
+                                    if(!err){
+                                        mkdirp(path + "/screens", function(err) {
+                                            for(var j = 0; j < fil.length; j++){
+                                                exec("mv " + path + "_tmp/" + aux + "/"+ fil[j] + " " + path + "/screens")
+                                            }
+
+                                        });    
+                                        
+                                    }
+                                })
+                            } else {
+                                exec("mv " + path + "_tmp/" + files[i] + " " + path)
+                            }
                         };
 
                         var npm = spawn('npm', ['install'], {cwd: path});
