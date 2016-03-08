@@ -4,12 +4,24 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var multer = require('multer');
 var socket_io = require("socket.io");
 
 var app = express();
 
 var io = socket_io();
 app.io = io;
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, '/home/alejandro/kiraso-wizard/service_data/tmp')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+});
+
+var upload = multer({ storage: storage }).single('file');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -46,6 +58,7 @@ var cloneRepo = require("./routes/cloneRepo");
 var removeComp = require("./routes/removeComp");
 var moveScreens = require("./routes/moveScreens");
 var setMetadata = require("./routes/setMetadata");
+var uploadFile = require("./routes/uploadFile")(upload);
 
 app.all('*', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -101,6 +114,7 @@ app.use('/cloneRepo', cloneRepo);
 app.use('/removeComp', removeComp);
 app.use('/moveScreens', moveScreens);
 app.use('/setMetadata', setMetadata);
+app.use('/uploadFile', uploadFile);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
