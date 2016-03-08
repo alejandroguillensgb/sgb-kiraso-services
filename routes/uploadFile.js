@@ -17,10 +17,21 @@ var returnFnc = function(upload){
             mkdirp(path + "/theme/resources", function(){
                 var zip_path = "/home/alejandro/kiraso-wizard/service_data/tmp"
                 fs.readdir(zip_path, function(err, files){
-                    exec("mv " + zip_path + "/" + files[0] + " " + path + "/theme/resources");
-                    exec("unzip " + files[0], { cwd: path + "/theme/resources"});
-                    exec("rm *.zip", { cwd: path + "/theme/resources" });
-                    res.json({error_code:0,err_desc:null});
+                    console.log(files);
+                    var ext = files[0].split(".")[1];
+                    if(ext == "zip" || ext == "tar"){
+                        exec("mv " + zip_path + "/" + files[0] + " " + path + "/theme/resources");
+                        if(ext == "zip"){
+                            exec("unzip " + files[0], { cwd: path + "/theme/resources"});
+                            exec("rm *.zip", { cwd: path + "/theme/resources" });    
+                        }else if(ext == "tar"){
+                            exec("tar -xf " + files[0], { cwd: path + "/theme/resources"});
+                            exec("rm *.tar", { cwd: path + "/theme/resources" });
+                        };
+                        res.send("Successful operation");
+                    } else {
+                        res.status(400).send("Incorrect input format")
+                    };
                 });
             })
         })
