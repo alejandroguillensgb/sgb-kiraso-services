@@ -1,6 +1,7 @@
 var fs = require('fs');
 var express = require('express');
 var mkdirp = require('mkdirp');
+var _ = require('lodash');
 var router = express.Router();
 
 router.put('/', function(req, res) {
@@ -18,9 +19,10 @@ router.put('/', function(req, res) {
             fs.closeSync(fs.openSync(path+"/"+filename, 'w+'));
             data = [];
         };
-
-        data.push(JSON.parse(cont))
-
+        
+        if(!_.find(data, JSON.parse(cont)))
+            data.push(JSON.parse(cont))
+        
         fs.writeFileSync(path+"/"+filename, JSON.stringify(data));
 
         res.send(cont);

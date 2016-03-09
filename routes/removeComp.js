@@ -16,15 +16,28 @@ router.put('/', function(req, res) {
 
     data = JSON.parse(fs.readFileSync(path+"/"+filename));    
 
-    _.remove(data, function(item){
-        return item.type == cont.type;
-    });
 
-    fs.writeFileSync(path+"/"+filename, JSON.stringify(data));
+    if(filename == "inventario_componentes_propios.json"){
+        _.remove(data, function(item){
+            return item.type == cont.type;
+        });
 
-    exec("rm -rf " + path + "/"+ app_name +"_tmp/screens/" + _.tail(cont.type).join(""), function(){
-        res.send("Comp removed");
-    })
+        fs.writeFileSync(path+"/"+filename, JSON.stringify(data));
+
+        exec("rm -rf " + path + "/screens/" + _.tail(cont.type).join(""), function(){
+            res.send("Comp removed");
+        })
+    }else if(filename == "inventario_apps_propios.json"){ 
+        _.remove(data, function(item){
+            return item.name == cont.name;
+        });
+
+        fs.writeFileSync(path+"/"+filename, JSON.stringify(data));
+
+        res.send("app removed");
+    };
+
+    
     
 });
 

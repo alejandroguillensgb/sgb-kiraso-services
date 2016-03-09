@@ -131,6 +131,8 @@ var returnFnc = function(io){
                                 exec("mv " + path + "_tmp/" + files[i] + " " + path)
                             };
 
+                            exec("ionic plugin add https://github.com/apache/cordova-plugin-whitelist.git", {cwd:path});
+
                             var build = spawn('gulp', ['build'], {cwd: path, stdio: [0, 'pipe', 'pipe']});
                             build.stdout.setEncoding('utf8');
                             build.stdout.on('data', function (data) {

@@ -59,6 +59,7 @@ var removeComp = require("./routes/removeComp");
 var moveScreens = require("./routes/moveScreens");
 var setMetadata = require("./routes/setMetadata");
 var uploadFile = require("./routes/uploadFile")(upload);
+var genApp = require("./routes/genApp");
 
 app.all('*', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -115,6 +116,7 @@ app.use('/removeComp', removeComp);
 app.use('/moveScreens', moveScreens);
 app.use('/setMetadata', setMetadata);
 app.use('/uploadFile', uploadFile);
+app.use('/genApp', genApp);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
