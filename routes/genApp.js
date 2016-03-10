@@ -14,7 +14,8 @@ router.get('/', function(req, res) {
     fs.access(path, fs.F_OK, function(err) {
         if (!err) {
             execSync("ionic build android", { cwd: path });
-            exec("cd " + init_path + " && tar -cvf " + last + ".tar " + last);
+            console.log("continue")
+            execSync("cd " + init_path + " && tar -cvf " + last + ".tar " + last);
             res.setHeader('Content-Type', 'application/x-tar');
             res.sendFile(path + ".tar");
         } else {
