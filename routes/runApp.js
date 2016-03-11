@@ -43,7 +43,7 @@ var returnFnc = function(io){
 
         console.log(path);
         
-        var build = spawn('gulp', ['build'], {cwd: path, stdio: [0, 'pipe', 'pipe']});
+        var build = spawn('gulp', ['serve'], {cwd: path, stdio: [0, 'pipe', 'pipe']});
         build.stdout.setEncoding('utf8');
         build.stdout.on('data', function (data) {
             io.emit("news", data);
@@ -55,20 +55,22 @@ var returnFnc = function(io){
         });
 
         build.on('close', function(){
-            var serve = spawn("ionic", ["serve", "-b"], { cwd: path });
+            // var serve = spawn("ionic", ["serve", "-b"], { cwd: path });
 
-            serve.stdout.setEncoding('utf8');    
-            serve.stdout.on('data', function (data) {
-                io.sockets.emit("news", data);
-            });
+            // serve.stdout.setEncoding('utf8');    
+            // serve.stdout.on('data', function (data) {
+            //     io.sockets.emit("news", data);
+            // });
 
-            serve.stderr.setEncoding('utf8');
-            serve.stderr.on('data', function (data) {
-                io.sockets.emit("news", data);
-            });
+            // serve.stderr.setEncoding('utf8');
+            // serve.stderr.on('data', function (data) {
+            //     io.sockets.emit("news", data);
+            // });
 
-            res.send(serve.pid.toString());
+            
         });
+
+        res.send(build.pid.toString());
 
 
     });
