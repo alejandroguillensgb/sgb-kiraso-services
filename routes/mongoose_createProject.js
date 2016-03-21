@@ -2,15 +2,14 @@ var assert = require('assert');
 var express = require('express');
 var mongoose = require('mongoose');
 var Project = require('./schemas/projectSchema');
+
 var router = express.Router();
 
 router.post('/', function(req, res) {
 
     var body = req.body;
     
-    var newProject = new Project({ _id: body.name, 
-                                    backgroundImage: body.backgroundImage,
-                                    appLogo: body.appLogo,
+    var newProject = new Project({ _id: body.name,
                                     graph: JSON.stringify({"nodes": [], "edges": []})
                                 });
 
@@ -21,18 +20,14 @@ router.post('/', function(req, res) {
                 console.log('added');
             });
         } else {
-            Project.update({_id: body.name}, {backgroundImage: body.backgroundImage,
-                                    appLogo: body.appLogo}, function(){
+            Project.update({_id: body.name}, {_id: body.name}, function(){
                                         console.log('updated');
                                     });
+            res.status.send("Bad request");
         };
     });
 
-    Project.find(function(err, elems){
-        console.log(elems);
-    });
-
-    res.send();
+    res.send("Project saved");
 });
 
 module.exports = router;

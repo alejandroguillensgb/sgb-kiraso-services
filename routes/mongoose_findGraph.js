@@ -2,6 +2,7 @@ var assert = require('assert');
 var express = require('express');
 var mongoose = require('mongoose');
 var Project = require('./schemas/projectSchema');
+
 var router = express.Router();
 
 router.get('/', function(req, res) {
@@ -22,7 +23,7 @@ router.get('/', function(req, res) {
             
         });
     } else {
-        res.status(400).send("no app name");
+        res.status(400).send("Bad request");
     };
 
 });

@@ -36,8 +36,6 @@ router.put('/', function(req, res) {
                 Project.find({_id: old_name}, function(err, projectElem){
                     var updateProject = new Project({
                                                      _id: model.name,
-                                                     backgroundImage: model.backgroundImage,
-                                                     appLogo: model.appLogo,
                                                      graph: projectElem[0].graph
                                                     });
                     console.log("project")
@@ -48,7 +46,7 @@ router.put('/', function(req, res) {
                         updateProject.save(function(err, elem){
                             console.log(elem);
                             console.log("project updated");
-                            res.send();
+                            res.send("Project updated");
                         })
                     })
                 });

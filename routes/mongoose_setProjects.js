@@ -3,6 +3,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var _ = require('lodash');
 var User = require('./schemas/userSchema');
+
 var router = express.Router();
 
 router.post('/', function(req, res) {
