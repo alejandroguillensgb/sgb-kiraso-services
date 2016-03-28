@@ -23,7 +23,6 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage }).single('file');
 
-var users = require('./routes/users');
 var getContent = require('./routes/getContent');
 var setContent = require('./routes/setContent');
 var dirTree = require('./routes/dirTree');
@@ -69,7 +68,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/users', users);
 app.use('/getContent', getContent);
 app.use('/setContent', setContent);
 app.use('/dirTree', dirTree);

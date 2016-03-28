@@ -1,7 +1,6 @@
 var fs = require('fs');
 var express = require('express');
 var mkdirp = require('mkdirp');
-var ts = require('typescript-compiler');
 var router = express.Router();
 
 router.put('/', function(req, res) {

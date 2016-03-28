@@ -14,20 +14,22 @@ router.post('/', function(req, res) {
                                 });
 
     Project.find({_id: body.name}, function(err, elems){
+        console.log("DEBUG")
         console.log(elems);
         if(typeof(elems)=="undefined" || elems.length == 0){
             newProject.save(function(){
                 console.log('added');
+                res.send("Project saved");
             });
         } else {
             Project.update({_id: body.name}, {_id: body.name}, function(){
                                         console.log('updated');
                                     });
-            res.status.send("Bad request");
+            res.status(400).send("Bad request");
         };
     });
 
-    res.send("Project saved");
+    
 });
 
 module.exports = router;

@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
             res.send("process killed");
         });
     } else {
-        res.status.send("Bad request");
+        res.status(400).send("Bad request");
     };
     
 });
