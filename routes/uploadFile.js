@@ -12,6 +12,7 @@ var returnFnc = function(upload){
         upload(req,res,function(err){
             var path = req.query.path;
             if(err){
+                console.log(err);
                 res.json({error_code:1,err_desc:err});
                 return;
             };
