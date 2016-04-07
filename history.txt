@@ -1,0 +1,794 @@
+    1  sudo add-apt-repository ppa:webupd8team/sublime-text-2
+    2  sudo apt-get update
+    3  sudo apt-get install sublime-text
+    4  sudo mv Descargas/megazord-install.sh /
+    5  ls Descargas/
+    6  cd /
+    7  ls
+    8  chmod 777 megazord-install.sh 
+    9  ls
+   10  ./megazord-install.sh 
+   11  source ~/.bashrc
+   12  cd
+   13  ioic
+   14  ionic
+   15  cordova
+   16  npm -v
+   17  node -v
+   18  npm install -g gulp
+   19  npm install -g bower
+   20  npm install -g git+ssh://git@github.com:SYNERGY-GB/generator-megazord.git
+   21  sudo apt-get install git
+   22  ls -al ~/.ssh
+   23  ssh-keygen -t rsa -b 4096 -C "alejandro.guillen@synergy-gb.com"
+   24  eval "$(ssh-agent -s)"
+   25  ssh-add ~/.ssh/id_rsa
+   26  sublime ~/.ssh/id_rsa.pub
+   27  subl ~/.ssh/id_rsa.pub
+   28  ssh -T git@github.com
+   29  npm install -g git+ssh://git@github.com:SYNERGY-GB/generator-megazord.git
+   30  mkdir app
+   31  cd app/
+   32  yo megazord
+   33  ls
+   34  bower install
+   35  gulp serve
+   36  cd
+   37  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+   38  echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+   39  sudo apt-get update
+   40  sudo apt-get install spotify-client
+   41  heroku
+   42  sudo apt-get install heroku
+   43  git clone git@bitbucket.org:aguillenv/antojos_app.git
+   44  sublime ~/.ssh/id_rsa.pub
+   45  subl ~/.ssh/id_rsa.pub
+   46  git clone git@bitbucket.org:aguillenv/antojos_app.git
+   47  cd antojos_app/
+   48  ls
+   49  cd
+   50  ruby -v
+   51  sudo apt-get install ruby
+   52  ruby -v
+   53  bash < <(curl -sL https://raw.github.com/railsgirls/installation-scripts/master/rails-install-ubuntu.sh)
+   54  gem install bundler
+   55  sudo gem install bundler
+   56  wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+   57  heroku
+   58  heroku pg:backups capture --app sushi
+   59  heroku pg:backups capture --app antojos_app
+   60  heroku pg:backups capture --app arcane-headland-6407
+   61  heroku pg:backups --app arcane-headland-6407
+   62  adv devices
+   63  android adv devices
+   64  cd
+   65  adb devices
+   66  sudo apt-get install android-tools-adb
+   67  sudo apt-get istall lsusb
+   68  sudo apt-get install lsusb
+   69  lsusb
+   70  ifconfig
+   71  cd
+   72  ifconfig -a
+   73  subl ~/.bashrc
+   74  ls
+   75  s
+   76  cd Descargas/android-sdk-linux/tools/
+   77  ls
+   78  ./android
+   79  cd
+   80  java
+   81  sudo apt-get install default-jdk
+   82  java -version
+   83  cd Descargas/android-sdk-linux/
+   84  cd tools/
+   85  ./android
+   86  npm install learnyounode -g
+   87  learnyounode
+   88  cd nodeschool/
+   89  node helloworld.js 
+   90  learnyounode verify helloworld.js 
+   91  learnyounode
+   92  learnyounode verify babysteps.js 
+   93  exit
+   94  node babysteps.js 
+   95  node babysteps.js 1 2 3
+   96  node babysteps.js 12 2 3
+   97  node babysteps.js 12 -2 3
+   98  node babysteps.js 12 2 3
+   99  node babysteps.js 12 -2 3
+  100  node babysteps.js 12
+  101  node babysteps.js
+  102  exit
+  103  cd
+  104  cd Descargas/android-sdk-linux/tools/
+  105  ./android
+  106  cd nodeschool/
+  107  ls
+  108  learnyounode 
+  109  which learnyounode 
+  110  echo $PATH
+  111  ls
+  112  learnyounode 
+  113  learnyounode run myfirstio.js 
+  114  learnyounode verify myfirstio.js 
+  115  learnyounode 
+  116  learnyounode run myfirstasynion.js 
+  117  learnyounode verify myfirstasynion.js 
+  118  learnyounode 
+  119  learnyounode run filteredls.js 
+  120  learnyounode verify filteredls.js 
+  121  learnyounode 
+  122  node makeitmodular.js 
+  123  learnyounode run makeitmodular.js 
+  124  learnyounode verify makeitmodular.js 
+  125  learnyounode 
+  126  learnyounode run http.js 
+  127  learnyounode verify http.js 
+  128  learnyounode 
+  129  npm install -g bl
+  130  learnyounode run httpcollect.js 
+  131  learnyounode verify httpcollect.js 
+  132  ls
+  133  learnyounode 
+  134  learnyounode run jugglingasync.js 
+  135  learnyounode verify jugglingasync.js 
+  136  learnyounode 
+  137  learnyounode run timeserver.js 
+  138  learnyounode verify timeserver.js 
+  139  learnyounode run timeserver.js 
+  140  date
+  141  learnyounode run timeserver.js 
+  142  learnyounode verify timeserver.js 
+  143  learnyounode 
+  144  learnyounode verify httpfileserver.js 
+  145  learnyounode run httpfileserver.js 
+  146  learnyounode verify httpfileserver.js 
+  147  learnyounode 
+  148  npm install -g through2-map
+  149  learnyounode run httpuppercase.js 
+  150  learnyounode verify httpuppercase.js 
+  151  learnyounode 
+  152  learnyounode verify httpuppercase.js 
+  153  learnyounode 
+  154  learnyounode verify httpuppercase.js 
+  155  learnyounode 
+  156  node -pe "require('url').parse('/test?q=1', true)"
+  157  learnyounode run httpjsonapiserver.js 
+  158  learnyounode 
+  159  learnyounode run httpjsonapiserver.js 
+  160  learnyounode 
+  161  learnyounode verify httpuppercase.js 
+  162  learnyounode 
+  163  learnyounode verify httpfileserver.js 
+  164  learnyounode 
+  165  learnyounode run httpjsonapiserver.js 
+  166  learnyounode 
+  167  learnyounode run httpjsonapiserver.js 
+  168  node -pe "require('url').parse('/test?q=1', true)"
+  169  learnyounode run httpjsonapiserver.js 
+  170  learnyounode verify httpjsonapiserver.js 
+  171  learnyounode run httpjsonapiserver.js 
+  172  learnyounode verify httpjsonapiserver.js 
+  173  learnyounode 
+  174  cd
+  175  npm install -g expressworks
+  176  expressworks 
+  177  npm install -g lololodash
+  178  lololodash 
+  179  expressworks 
+  180  cd
+  181  cd nodeschool/expressworks/
+  182  ls
+  183  expressworks 
+  184  npm install express --save
+  185  killall node
+  186  expressworks run program.js
+  187  expressworks run express.js
+  188  expressworks verify express.js
+  189  expressworks 
+  190  killall node
+  191  expressworks run static.js
+  192  expressworks verify static.js
+  193  expressworks 
+  194  expressworks run jade.js
+  195  npm install jade
+  196  expressworks run jade.js
+  197  expressworks verify jade.js
+  198  exit
+  199  cd nodeschool/expressworks/
+  200  ls
+  201  expressworks 
+  202  npm install -g body-parser
+  203  expressworks run goodoldform.js 
+  204  expressworks verify goodoldform.js 
+  205  expressworks run goodoldform.js 
+  206  npm install body-parser
+  207  expressworks run goodoldform.js 
+  208  npm install body-parser
+  209  expressworks run goodoldform.js 
+  210  ls
+  211  ls node_modules/
+  212  rm -rf node_modules/
+  213  npm install express
+  214  npm install jade
+  215  npm install body-parser
+  216  ls
+  217  expressworks run goodoldform.js 
+  218  expressworks verify goodoldform.js 
+  219  expressworks
+  220  npm install stylus
+  221  expressworks run stylishcss.js 
+  222  expressworks verify stylishcss.js 
+  223  sudo expressworks verify stylishcss.js 
+  224  killallnode
+  225  killall node
+  226  su -c 'chown GROUP:USR /usr/lib/node_modules/expressworks/problems/stylish_css/public/*'
+  227  chmod 777 /usr/lib/node_modules/expressworks/problems/stylish_css/public/*
+  228  expressworks verify stylishcss.js 
+  229  expressworks 
+  230  expressworks run parampampam.js 
+  231  expressworks verify parampampam.js 
+  232  expressworks
+  233  expressworks run whatsinquery.js 
+  234  expressworks verify whatsinquery.js 
+  235  expressworks run whatsinquery.js 
+  236  expressworks verify whatsinquery.js 
+  237  killall node
+  238  expressworks verify whatsinquery.js 
+  239  expressworks 
+  240  expressworks run jsonme.js 
+  241  expressworks verify jsonme.js 
+  242  expressworks 
+  243  cd
+  244  cd nodeschool/
+  245  ls
+  246  mkdir lololodash 
+  247  cd lololodash/
+  248  ls
+  249  lololodash 
+  250  npm install -g lodash
+  251  lololodash run gettinstarted.js 
+  252  lololodash verify gettinstarted.js 
+  253  lololodash 
+  254  lololodash run sortme.js 
+  255  lololodash verify sortme.js 
+  256  lololodash 
+  257  lololodash run ineverycase.js 
+  258  lololodash verify ineverycase.js 
+  259  lololodash 
+  260  lololodash run everyoneismin.js 
+  261  lololodash 
+  262  lololodash run everyoneismin.js 
+  263  lololodash 
+  264  lololodash run everyoneismin.js 
+  265  lololodash verify everyoneismin.js 
+  266  lololodash 
+  267  lololodash run chainmail.js 
+  268  lololodash 
+  269  lololodash run chainmail.js 
+  270  lololodash verify chainmail.js 
+  271  lololodash 
+  272  lololodash run countthecomments.js 
+  273  lololodash verify countthecomments.js
+  274  lololodash 
+  275  lololodash run givemeanoverview.js 
+  276  lololodash verify givemeanoverview.js 
+  277  lololodash 
+  278  lololodash run analyze.js 
+  279  lololodash verify analyze.js 
+  280  ls
+  281  expressworks 
+  282  lololodash 
+  283  lololodash run template.js 
+  284  lololodash verify template.js 
+  285  lololodash 
+  286  cd nodeschool/learnyounode/
+  287  ls
+  288  learnyounode run httpfileserver.js 
+  289  learnyounode run httpcollect.js 
+  290  learnyounode 
+  291  learnyounode run filteredls.js 
+  292  learnyounode 
+  293  learnyounode run httpcollect.js 
+  294  learnyounode 
+  295  learnyounode
+  296  learnyounode http.js 
+  297  cd
+  298  ls
+  299  ifconfig 
+  300  learnyounode 
+  301  cd nodeschool/
+  302  ls
+  303  cd learnyounode/
+  304  learnyounode run cd
+  305  cd
+  306  heroku pg:backups capture
+  307  heroku pg:backups capture antojos_app
+  308  ls
+  309  heroku pg:backups capture antojos_app
+  310  cd antojos_app/
+  311  heroku pg:backups capture
+  312  ls
+  313  heroku pg:backups capture --app antojos_app
+  314  cd
+  315  heroku pg:backups capture --app antojos_app
+  316  cd antojos_app/
+  317  heroku pg:backups
+  318  heroku pg:backups capture --app antojos_app
+  319  heroku login
+  320  heroku pg:backups capture --app antojos_app
+  321  heroku pg:backups
+  322  heroku
+  323  heroku pgbackups
+  324  ls
+  325  heroku stag
+  326  heroku stack
+  327  heroku stack --app antojos_app
+  328  git remote show heroku
+  329  git status
+  330  heroku git status
+  331  git remote add heroku git@heroku.com:antojos_app.git
+  332  heroku pgbackups
+  333  heroku pg:backups
+  334  heroku pg:backups capture --app antojos_app
+  335  heroku info
+  336  cd
+  337  heroku pg:backups arcane-headland-6407
+  338  heroku pg:backups capture --app arcane-headland-6407
+  339  heroku pg:backups --app arcane-headland-6407
+  340  ls
+  341  cd nodeschool/
+  342  cd learnyounode/
+  343  lear
+  344  ls
+  345  learnyounode 
+  346  ls
+  347  node filteredls.js . js
+  348  node filteredls.js .
+  349  learnyounode 
+  350  learnyounode run httpfileserver.js 
+  351  node httpfileserver.js 3000 ./babysteps.js
+  352  ls
+  353  node httpfileserver.js 3000 ./http.js
+  354  learnyounode run httpfileserver.js 
+  355  node httpfileserver.js 32669 ./http.js
+  356  node httpfileserver.js 32669 /http.js
+  357  node httpfileserver.js 32679 /http.js
+  358  learnyounode 
+  359  learnyounode run http
+  360  learnyounode run http.js
+  361  node http.js /
+  362  node http.js .
+  363  node myfirstasynion.js .
+  364  node myfirstasynion.js ./babysteps.js 
+  365  ifconfig
+  366  ifconfig -a
+  367  ping 192.168.1.1
+  368  npm install -g express-generator
+  369  express -h
+  370  express
+  371  express services
+  372  ls
+  373  cd services/
+  374  ls
+  375  npm install
+  376  DEBUG=services:* npm start
+  377  npm start
+  378  ssh -l admin@172.16.16.54
+  379  ssh -l admin@172.16.16.254
+  380  ssh admin@172.16.16.254
+  381  lololodash 
+  382  sudo apt-get install openjdk-8-jre
+  383  sudo apt-get install openjdk-8-jdk
+  384  history
+  385  sudo apt-get install openjdk-8-jre
+  386  sudo apt-get update
+  387  sudo apt-get upgrade
+  388  sudo apt-get install openjdk-8-jdk
+  389  java --version
+  390  java -v
+  391  java
+  392  java -version
+  393  sudo apt-get install default-jdk
+  394  cd kiraso-wizard/
+  395  git clone git@github.com:alejandroguillensgb/sgb-kiraso-wizard.git
+  396  ls
+  397  git clone git@github.com:alejandroguillensgb/sgb-kiraso-services.git
+  398  ls
+  399  cd sgb-kiraso-wizard/
+  400  ls
+  401  git pull
+  402  gulp serve
+  403  npm install -g gulp
+  404  gulp serve
+  405  npm install gulp
+  406  gulp serve
+  407  npm install yargs
+  408  gulp serve
+  409  npm install
+  410  gulp serve
+  411  npm install gulp-compass --save-dev
+  412  gulp serve
+  413  tuby -v
+  414  ruby -v
+  415  npm install gulp-compass
+  416  gulp serve
+  417  gem install compass
+  418  sudo gem install compass
+  419  sudo apt-get install ruby-dev
+  420  sudo gem install compass
+  421  gem install susy
+  422  sudo gem install susy
+  423  sudo gem install sass-globbing
+  424  sudo gem install modular-scale
+  425  npm test
+  426  npm install gulp-compass
+  427  gulp serve
+  428  bower install
+  429  gulp serve
+  430  npm install
+  431  gulp serve
+  432  bower install
+  433  npm install
+  434  gulp
+  435  gulp serve
+  436  angular -v
+  437  ls
+  438  cat gulpfile.js 
+  439  ls
+  440  gulp serve
+  441  bower install angular-schema-form
+  442  npm install -g angular-schema-form
+  443  gulp serve
+  444  bower install angular-spectrum-colorpicker
+  445  bower install
+  446  npm install
+  447  gulp serve
+  448  git status
+  449  git pull
+  450  cd sgb-kiraso-services/
+  451  ls
+  452  cat package.json 
+  453  cat npm-debug.log 
+  454  cd bin
+  455  ls
+  456  cd www
+  457  cat www
+  458  cd ..
+  459  ls
+  460  cd public/
+  461  ls
+  462  cd ..
+  463  cat app
+  464  cat app.js 
+  465  DEBUG=sgb-kiraso-services-* npm start
+  466  git pull
+  467  DEBUG=sgb-kiraso-services-* npm start
+  468  npm install -g ncp
+  469  DEBUG=sgb-kiraso-services-* npm start
+  470  ifconfig
+  471  ssh -l admin 172.16.16.254
+  472  clear
+  473  history
+  474  cd kiraso-wizard/
+  475  ls
+  476  cd sgb-kiraso-wizard/
+  477  gulp serve
+  478  git status
+  479  git add .
+  480  git commit -m "Menu form added"
+  481  git status
+  482  git commit -m "menu form added"
+  483  git config --global user.email "alejandro.guillen@synergy-gb.com"
+  484  git config --global user.name "Alejandro Guillen"
+  485  git commit -m "menu form added"
+  486  git push
+  487  exit
+  488  cd ..
+  489  sgb-kiraso-services/
+  490  cd sgb-kiraso-services/
+  491  DEBUG=sgb-kiraso-services-* npm start
+  492  exi
+  493  exit
+  494  cd kiraso-wizard/
+  495  LS
+  496  ls
+  497  cd sgb-kiraso-wizard/
+  498  gulp serve
+  499  cd sgb-kiraso-services/
+  500  DEBUG=sgb-kiraso-services-* npm start
+  501  cd ..
+  502  cd sgb-kiraso-services/
+  503  DEBUG=sgb-kiraso-services-* npm start
+  504  DEBUG=sgb-kiraso-services:* npm start
+  505  cd kiraso-wizard/sgb-kiraso-wizard/
+  506  gulp serve
+  507  ls
+  508  cd testApp/
+  509  ls
+  510  gulp serve
+  511  cd testApp/
+  512  ls
+  513  gulp serve
+  514  cd 
+  515  cd kiraso-wizard/sgb-kiraso-services/
+  516  ls
+  517  DEBUG=sgb-kiraso-services-* npm start
+  518  DEBUG=sgb-kiraso-services:* npm start
+  519  ssh stefany@17216.16.2000
+  520  ssh stefany@17216.16.200
+  521  ssh stefany@172.16.16.200
+  522  git clone -b bancoPlaza --single-branch git@github.com:SYNERGY-GB/bancaplus-app-temporal.git
+  523  cd bancaplus-app-temporal/
+  524  gulp serve
+  525  npm install -g gulp
+  526  npm install
+  527  gulp serve
+  528  ls
+  529  npm install -g gulp
+  530  ls
+  531  gulp serve
+  532  bower install
+  533  npm install
+  534  gulp serve
+  535  bower install
+  536  npm install
+  537  gulp serve
+  538  bower clean cache
+  539  git status
+  540  git add .
+  541  git commit -m "logout service added"
+  542  git push
+  543  gulp serve
+  544  bower cache clean
+  545  rm -rf node_modules/
+  546  rm -rf www/
+  547  npm install
+  548  gulp serve
+  549  rm -rf www/
+  550  rm -rf node_modules/
+  551  npm install
+  552  gulp serve
+  553  rm -rf www/
+  554  rm -rf node_modules/
+  555  npm install
+  556  gulp serve
+  557  rm -rf node_modules/
+  558  rm -rf www/
+  559  bower install
+  560  np install
+  561  npm install
+  562  gulp serve
+  563  df
+  564  cd
+  565  cd bancaplus-app-temporal/
+  566  ls
+  567  gulp serve
+  568  git statis
+  569  git status
+  570  gulp serve
+  571  ssh stefany@172.16.16.200
+  572  ls
+  573  cd node_modules/.bin/
+  574  ls
+  575  cd ..
+  576  ls
+  577  cd ..
+  578  cd
+  579  ls
+  580  cd tty\ test/
+  581  ls
+  582  node web-terminal.js 
+  583  cd bancaplus-app-temporal/
+  584  git pull
+  585  git status
+  586  git add --all
+  587  git commit -m "changes"
+  588  git pull
+  589  gulp serve
+  590  rm -rf node_modules/
+  591  rm -rf www/
+  592  gulp serve
+  593  npm install
+  594  gulp serve
+  595  echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+  596  gulp serve
+  597  cd
+  598  cd testApp/
+  599  ls
+  600  gulp serve
+  601  cd ..
+  602  cd sgb-kiraso-services/
+  603  DEBUG=sgb-kiraso-services-* npm start
+  604  DEBUG=sgb-kiraso-services:* npm start
+  605  cd testApp/
+  606  ls
+  607  gulp serve
+  608  cd
+  609  cd kiraso-wizard/
+  610  cd sgb-kiraso-wizard/
+  611  gulp serve
+  612  cd
+  613  cd bancaplus-app-temporal/
+  614  gulp serve
+  615  git status
+  616  git add .
+  617  git commit -m "Timeout agregado | servicios extracredito agregados | revision de codigos de estado"
+  618  git push
+  619  cd screens/
+  620  mkdir sgb-bancam-screen-login
+  621  cd sgb-bancam-screen-login/
+  622  yo megazord:screen
+  623  cd ..
+  624  gulp serve
+  625  git status
+  626  git add .
+  627  git commit -m "Detalles de etiquetas, iconos y puntos"
+  628  git status
+  629  exit
+  630  cd
+  631  echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+  632  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
+  633  sudo apt-get update
+  634  ls
+  635  mv jdk1.8.0_71/ ~/
+  636  mv jdk1.8.0_71/ /usr/lib/jvm/
+  637  sudo mv jdk1.8.0_71/ /usr/lib/jvm/
+  638  update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_71/bin/java 2
+  639  sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_71/bin/java 2
+  640  sudo update-alternatives --config java
+  641  sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk1.8.0_71/bin/jar 2
+  642  sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_71/bin/javac 2
+  643  alternatives --set jar /usr/lib/jvm/jdk1.8.0_71/bin/jar
+  644  sudo update-alternatives --set jar /usr/lib/jvm/jdk1.8.0_71/bin/jar
+  645  sudo update-alternatives --set javac /usr/lib/jvm/jdk1.8.0_71/bin/javac
+  646  git clone https://github.com/sauldhernandez/scalacourse.git
+  647  cd scalacourse/
+  648  sbt console
+  649  cd..
+  650  cd ..
+  651  cd idea-IC-143.1821.5/
+  652  cd bin/
+  653  ls
+  654  ./idea.sh
+  655  sh idea.sh 
+  656  sudo sh idea.sh 
+  657  java -version
+  658  javac -version
+  659  jar -version
+  660  sh idea.sh 
+  661  cd ..
+  662  ls
+  663  cd ..
+  664  ls
+  665  tar xfz ideaIC-15.0.3.tar.gz ./usr/lib/
+  666  tar xfz ideaIC-15.0.3.tar.gz /usr/lib/
+  667  sudo tar xfz ideaIC-15.0.3.tar.gz /usr/lib/
+  668  cd /usr/lib/
+  669  ls
+  670  cd ..
+  671  ls
+  672  cd
+  673  ls
+  674  la
+  675  cd .IdeaIC15/
+  676  ls
+  677  cd system/
+  678  ls
+  679  cd
+  680  cd idea-IC-143.1821.5/
+  681  ls
+  682  cat build.txt
+  683  cat Install-Linux-tar.txt.txt
+  684  cat Install-Linux-tar.txt
+  685  cd bin/
+  686  ls
+  687  ./idea.sh
+  688  uname -a
+  689  cd
+  690  ls
+  691  sudo mv jdk1.8.0_71/ /usr/lib/jvm/
+  692  update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_71/bin/java 2
+  693  sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_71/bin/java 2
+  694  sudo update-alternatives --config java
+  695  history
+  696  sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk1.8.0_71/bin/jar 2
+  697  sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_71/bin/javac 2
+  698  sudo update-alternatives --set jar /usr/lib/jvm/jdk1.8.0_71/bin/jar
+  699  sudo update-alternatives --set javac /usr/lib/jvm/jdk1.8.0_71/bin/javac
+  700  ls
+  701  cd idea-IC-143.1821.5/
+  702  ls
+  703  cd bin/
+  704  ls
+  705  ./idea.sh 
+  706  history
+  707  cd
+  708  ssh stefany@172.16.16.200
+  709  cd /usr/lib/jvm/jdk1.8.0_71/
+  710  ls
+  711  cd jre/lib/i386/
+  712  ls
+  713  cd ..
+  714  ls
+  715  ll
+  716  chmod 777 jdk1.8.0_71/
+  717  chmod 777 jdk1.8.0_71/ -r
+  718  chmod 777 -r jdk1.8.0_71/
+  719  chmod 777 -R jdk1.8.0_71/
+  720  ll
+  721  ls
+  722  rm -rf jdk1.8.0_71/
+  723  sudo rm -rf jdk1.8.0_71/
+  724  ls
+  725  history
+  726  cd
+  727  ls
+  728  cd scalacourse/
+  729  ls
+  730  sbt console
+  731  sbt
+  732  echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+  733  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
+  734  sudo apt-get update
+  735  sudo apt-get install sbt
+  736  sbt
+  737  sbt console
+  738  git status
+  739  git add .
+  740  git add --all
+  741  git commit -m "detalles de textos arreglados"
+  742  git push
+  743  adb devices
+  744  cd scalacourse/
+  745  sbt console
+  746  cd
+  747  cd banc
+  748  cd bancaplus-app-temporal/
+  749  ls
+  750  git status
+  751  ls
+  752  cd screens/
+  753  ls
+  754  mkdir sgb-bancam-screen-terms
+  755  cd sgb-bancam-screen-terms/
+  756  ls
+  757  yo megazord:screen
+  758  cd ..
+  759  ls
+  760  gulp serve
+  761  adb devices
+  762  ionic run android
+  763  gulp serve
+  764  ionic run andorid
+  765  ionic run android
+  766  git status
+  767  git add .
+  768  git commit -m "Terms screen added"
+  769  git push
+  770  gulp build
+  771  ionic build
+  772  cd
+  773  cd 
+  774  cd kiraso-wizard/
+  775  ls
+  776  cd sgb-kiraso-wizard/
+  777  cd sgb-kiraso-services/
+  778  ls
+  779  cd
+  780  cd testApp/
+  781  ls
+  782  gulp serve
+  783  rm -rf www/
+  784  gulp serve
+  785  rm -rf www/
+  786  gulp serve
+  787  rm -rf node_modules/
+  788  rm -rf www/
+  789  npm install
+  790  gulp serve
+  791  ssh stefany@172.16.16.200
+  792  cd sgb-kiraso-services/
+  793  history
+  794  history > history.txt

@@ -1,35 +1,38 @@
 var express = require('express');
-var router = express.Router();
 var fs = require('fs');
 var path = require('path');
 
-function dirTree(filename) {
-    var stats = fs.lstatSync(filename),
-        info = {
-            path: filename,
-            text: path.basename(filename)
-        };
+var router = express.Router();
 
-    if (stats.isDirectory()) {
-        info.type = "folder";
-        info.icon = "icon-folder"
-        info.submenu = fs.readdirSync(filename).map(function(child) {
-            return dirTree(filename + '/' + child);
-        });
+router.get('/', function(req, res) {
+    
+    function dirTree(filename) {
+
+        var stats = fs.lstatSync(filename),
+            info = {
+                path: filename,
+                text: path.basename(filename)
+            };
+
+        if (stats.isDirectory()) {
+            info.type = "folder";
+            info.submenu = fs.readdirSync(filename).map(function(child) {
+                return dirTree(filename + '/' + child);
+            });
+        } else {
+            info.type = "file";
+        }
+
+        return info;
+    };
+
+    if(typeof(req.query.path) != "undefined"){
+        var my_path = req.query.path;
+        res.json([dirTree(my_path)])
     } else {
-        // Assuming it's a file. In real life it could be a symlink or
-        // something else!
-        info.type = "file";
-        info.icon = "fa fa-file-o"
-    }
-
-    return info;
-}
-
-router.get('/', function(req, res, next) {
-    
-    res.json([dirTree('/home/alejandro/testApp')])
-    
+        res.status(400).send("Bad request");
+    };
+        
 });
 
 module.exports = router;

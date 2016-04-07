@@ -4,19 +4,55 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var getContent = require('./routes/getContent');
-var setContent = require('./routes/setContent');
-var dirTree = require('./routes/dirTree');
-var testTree = require('./routes/test-tree');
-var copyContent = require('./routes/copyContent');
+var multer = require('multer');
+var socket_io = require("socket.io");
 
 var app = express();
 
+var io = socket_io();
+app.io = io;
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, '/home/alejandro/kiraso-wizard/service_data/tmp')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+});
+
+var upload = multer({ storage: storage }).single('file');
+
+var getContent = require('./routes/getContent');
+var setContent = require('./routes/setContent');
+var dirTree = require('./routes/dirTree');
+var mongoose_createProject = require('./routes/mongoose_createProject');
+var createUser = require("./routes/createUser");
+var dropDb = require("./routes/dropDb");
+var loginUser = require("./routes/loginUser");
+var mongoose_setGraph = require("./routes/mongoose_setGraph");
+var mongoose_setProjects = require("./routes/mongoose_setProjects");
+var mongoose_findGraph = require("./routes/mongoose_findGraph");
+var mongoose_findApp = require("./routes/mongoose_findApp");
+var mongoose_removeElement = require("./routes/mongoose_removeElement");
+var mongoose_updateProject = require("./routes/mongoose_updateProject");
+var exec = require("./routes/exec")(io);
+var generateFolder = require("./routes/generateFolder");
+var runApp = require("./routes/runApp")(io);
+var setContentConfig = require("./routes/setContentConfig");
+var killApp = require("./routes/killApp");
+var setInventario = require("./routes/setInventario");
+var cloneRepo = require("./routes/cloneRepo");
+var removeComp = require("./routes/removeComp");
+var moveScreens = require("./routes/moveScreens");
+var setMetadata = require("./routes/setMetadata");
+var uploadFile = require("./routes/uploadFile")(upload);
+var genApp = require("./routes/genApp");
+
 app.all('*', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'GET, POST, PUT, DELETE, OPTIONS, Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With');
   next();
 });
 
@@ -32,13 +68,31 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
 app.use('/getContent', getContent);
 app.use('/setContent', setContent);
 app.use('/dirTree', dirTree);
-app.use('/testTree', testTree);
-app.use('/copyContent', copyContent);
+app.use('/mongoose_createProject', mongoose_createProject);
+app.use('/createUser', createUser);
+app.use('/dropDb', dropDb);
+app.use('/loginUser', loginUser);
+app.use('/mongoose_setGraph', mongoose_setGraph);
+app.use('/mongoose_setProjects', mongoose_setProjects);
+app.use('/mongoose_findGraph', mongoose_findGraph);
+app.use('/mongoose_findApp', mongoose_findApp);
+app.use('/mongoose_removeElement', mongoose_removeElement);
+app.use('/mongoose_updateProject', mongoose_updateProject);
+app.use('/exec', exec);
+app.use('/generateFolder', generateFolder);
+app.use('/runApp', runApp);
+app.use('/setContentConfig', setContentConfig);
+app.use('/killApp', killApp);
+app.use('/setInventario', setInventario);
+app.use('/cloneRepo', cloneRepo);
+app.use('/removeComp', removeComp);
+app.use('/moveScreens', moveScreens);
+app.use('/setMetadata', setMetadata);
+app.use('/uploadFile', uploadFile);
+app.use('/genApp', genApp);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
