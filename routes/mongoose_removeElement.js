@@ -3,6 +3,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var _ = require('lodash');
 var fs = require('fs');
+var exec = require('child_process').exec;
 var Project = require('./schemas/projectSchema');
 var User = require('./schemas/userSchema');
 
@@ -29,20 +30,21 @@ router.delete('/', function(req, res) {
                             elems[0].remove(function(){
                                 updateUser.save(function(){
 
-                                        var data;
-                                        var app_path = "/home/alejandro/kiraso-wizard/service_data/alejandro/inventario_apps_propios.json";
-                                        try {
-                                            fs.accessSync(app_path, fs.F_OK);
-                                            data = JSON.parse(fs.readFileSync(app_path));
-                                        } catch (e) {
-                                            data=[];
-                                        };
-                                        
+                                    var data;
+                                    var app_path = "/home/alejandro/kiraso-wizard/service_data/alejandro/inventario_apps_propios.json";
+                                    try {
+                                        fs.accessSync(app_path, fs.F_OK);
+                                        data = JSON.parse(fs.readFileSync(app_path));
                                         _.remove(data, function(elem){return elem.name == app_name})
-                                        
                                         fs.writeFileSync(app_path, JSON.stringify(data));
-
-                                    res.send("username updated");
+                                    } catch (e) {
+                                        data=[];
+                                    };
+                                    exec("rm -rf /home/alejandro/kiraso-wizard/service_data/" + username + "/" + app_name, function(){
+                                        exec("rm -rf /home/alejandro/kiraso-wizard/service_data/" + username + "/" + app_name + "_tmp", function(){
+                                            res.send("Comp removed");
+                                        });
+                                    });
                                 })    
                             });
                             
