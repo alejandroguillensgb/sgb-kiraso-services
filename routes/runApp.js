@@ -24,7 +24,7 @@ var returnFnc = function(io){
         });
 
         bower.on('close', function(){
-            var build = spawn('gulp', ['serve'], {cwd: path, stdio: [0, 'pipe', 'pipe']});
+            var build = spawn('gulp', ['serve', '-b'], {cwd: path, stdio: [0, 'pipe', 'pipe']});
             build.stdout.setEncoding('utf8');
             build.stdout.on('data', function (data) {
                 io.emit("news", data);
